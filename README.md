@@ -62,9 +62,31 @@ __Type I and Type II are just two ways of specifying threat models__
       
  All the metrics have the same optimization and hyperparameters 
 
-###  Results
+###  Results. 
 
-- Type I, Type II
+__1.Generate Attack Perturbations for cloud Deployment model using the 3 metrics__
+There are 12 variations created by the combination of distance metric and correct prediction for each class. First step is to create perturbations for all variations.
+
+      python attack_file index_file start_idx end_idx
+      
+      python cloud_eval_l2.py data_select_A.csv 1 360
+      python cloud_eval_l2.py data_select_N.csv 1 360
+      python cloud_eval_l2.py data_select_O.csv 1 360
+      python cloud_eval_l2.py data_select_i.csv 1 220
+      
+      python cloud_eval_diff.py data_select_A.csv 1 360
+      python cloud_eval_diff.py data_select_N.csv 1 360
+      python cloud_eval_diff.py data_select_O.csv 1 360
+      python cloud_eval_diff.py data_select_i.csv 1 220
+      
+      python cloud_eval_diffl2.py data_select_A.csv 1 360
+      python cloud_eval_diffl2.py data_select_N.csv 1 360
+      python cloud_eval_diffl2.py data_select_O.csv 1 360
+      python cloud_eval_diffl2.py data_select_i.csv 1 220
+
+__2.For perturbations in each class compare the target to other 3 classes __
+
+- Type I, Type II (Can both type I and type II have local and cloud deployed models?)
 - Cloud deployed, Local deployed
 - with EOT and without
 - Effect of window
