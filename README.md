@@ -27,13 +27,16 @@ Install dependencies. (Cleverhans version 2.0.0 was not submitted to PyPi. so, I
       $ pip install cleverhans==2.1.0
       $ pip install keras==2.2.0
 
-If working directly from python scripts you are done. But I like to work here in Jupyter Notebook so will have to install Jupyter in a virtual environment 
-      `$ pip install jupyter notebook`
+If working directly from python scripts you are done. But I like to work here in Jupyter Notebook so will have to install Jupyter in a virtual environment.
+ 
+      $ pip install jupyter notebook
 
 Now Install a kernel so that the version of dependencies that we installed above are used by jupyter
+
       $ ipython kernel install --user --name=.venv
 
 Run Jupyter. Be sure to check the presence of .venv in 'New' at the top right
+
       $ jupyter notebook
 
 ### Getting the files from the results of Deep Learning Based Classifier
