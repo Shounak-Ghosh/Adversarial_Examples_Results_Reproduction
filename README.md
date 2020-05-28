@@ -43,8 +43,8 @@ Run Jupyter. Be sure to check the presence of .venv in 'New' at the top right
 Copy all the files from DNN based ECG classification implementation. as seen [here](https://github.com/Bibek-Poudel/DNN_ECG_Implementation). In addition, I had to create several folders like 'cloud model' as seen in this repository.
 
 The organization of other files in this repository are: 
--
--
+-m
+-m
 
 ### Note (IMPORTANT)
 Since the accuracy of the model (DNN based ECG classification) is not 100%. The authors here create adversarial examples for only the data that was correctly classified. The frequency of this data is: 
