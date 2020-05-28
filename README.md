@@ -60,6 +60,11 @@ The organization of other files in this repository are:
 
 ###  Results
 
+- Type I, Type II
+- Cloud deployed, Local deployed
+- with EOT and without
+- Effect of window
+
 ####  Results on the Local Deployment model
 
 ####  Results on the Cloud Deployment model
