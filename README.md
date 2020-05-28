@@ -49,6 +49,9 @@ The organization of other files in this repository are:
 ### Attack Notes (IMPORTANT)
 - Since the accuracy of the model (DNN based ECG classification) is not 100%. The authors here create adversarial examples for only the data that was correctly classified. The frequency of this data is: 
 
+- Type I attack (The adversary can access the ECG recordings and curropt them by adding perturbations. For example, a cardiologist who wants to fool an insurance company or a hacker who wants to curropt a cloud deployed model)
+
+- Type II attack (The adversary cannot access the ECG directly, wants to fool the system without leaving digital tampering). So, on the fly injection is done by physical process (electro magnetic interference)
 
 - For Type I attack (Local Deployment model), The authors select first 360 correct predictions for classes A, N and O respectively. For the class ~ the authors take the first 220 correct predictions. __('segments'?)__ . For a targeted attack each class has 3 possible misclassification targets. There are 12 possibilities. But, this has to be evaluated for each distance metric (given below). So, in total there are total 36 target possibilities.
 
@@ -64,7 +67,7 @@ The organization of other files in this repository are:
 - Cloud deployed, Local deployed
 - with EOT and without
 - Effect of window
-
+- Type I results, different similarity metrics (is it for cloud or local?)
 ####  Results on the Local Deployment model
 
 ####  Results on the Cloud Deployment model
