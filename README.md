@@ -1,7 +1,7 @@
 # Adversarial_Examples_Results_Reproduction
 Results reproduction of the ECGAdv paper. 
 
-### Setting up an environment for running the experiments
+### Setting up a virtual environment for running the experiments
 The dependency versions for the project are:  
   - python version 3.6.5
   - Tensorflow version 1.8.0
@@ -39,9 +39,9 @@ Run Jupyter. Be sure to check the presence of .venv in 'New' at the top right
 
       $ jupyter notebook
 
-### Getting the files from the results of Deep Learning Based Classifier
-
+###  Getting the files from the results of Deep Learning Based Classifier
 Copy all the files from DNN based ECG classification implementation. as seen [here](https://github.com/Bibek-Poudel/DNN_ECG_Implementation). In addition, I had to create several folders like 'cloud model' as seen in this repository.
+
 The organization of other files in this repository are: 
 -
 -
