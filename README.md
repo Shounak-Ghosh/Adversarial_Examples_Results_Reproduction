@@ -20,8 +20,14 @@ pip install -e git://github.com/tensorflow/cleverhans.git@v2.0.0#egg=cleverhans
 Install a kernel: ipython kernel install --user --name=.venv
 
  $ pip install jupyter notebook
+ 
+ run juupyter notebook in venv 
 
 ###
 Taking all the files from DNN based ECG Implementation. as seen here
 
 ###  Results
+
+####  Results on the Local Deployment model
+
+####  Results on the Cloud Deployment model
