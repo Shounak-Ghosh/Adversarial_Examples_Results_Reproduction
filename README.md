@@ -28,7 +28,7 @@ Install dependencies. (Cleverhans version 2.0.0 was not submitted to PyPi. so, I
       $ pip install keras==2.2.0
 
 If working directly from python scripts you are done. But I like to work here in Jupyter Notebook so will have to install Jupyter in a virtual environment 
-       $ pip install jupyter notebook
+      `$ pip install jupyter notebook`
 
 Now Install a kernel so that the version of dependencies that we installed above are used by jupyter
       $ ipython kernel install --user --name=.venv
