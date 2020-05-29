@@ -63,6 +63,7 @@ __Type I and Type II are just two ways of specifying threat models__
  All the metrics have the same optimization and hyperparameters 
 
 ###  Results. 
+It takes very long time to generate perturbations. In some cases it took me 10 minutes to generate perturbation for 1 ECG.
 
 __1.Generate Attack Perturbations for cloud Deployment model using the 3 metrics__
 There are 12 variations created by the combination of distance metric and correct prediction for each class. First step is to create perturbations for all variations.
