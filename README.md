@@ -58,11 +58,31 @@ Copy the YY files named below (from this repository), these are associated with 
 
 In addition, create a folder named 'cloud model' and 
 
+### Explaining the Attacks
+
+The adversary aims to engineer ECGs so that the classification system is mislead to give the diagnosis that he/she desires. Meanwhile, data perturbations should be sufficiently subtle that they are either imperceptible to humans or it perceptible seems natural and not representative of an attack. There are two types of attacks, Type I and Type II, each with its own threat model: 
+
+__Type I attack:__ Adversary can access the ECG signals, and curropt them by adding perturbations i.e. a digital access to ECG signals without showing up physically on the scene where an ECG was taken.
+
+- eg. a cardiologist with monetary incentives to fool the insurance company. (local deployment)
+- A hacker who could manipulate a cloud deployed model for fun or for profit. (cloud deployment)
+
+The evaluation of Type I attack is a bit more ambitious, i.e. it evaluates targeted attacks (Not just a misclassification, but a misclassification to a specific target class)
+
+For a targeted attack, each class has 3 possible misclassification targets so, there are 12 possibilities. But, each target attack has to be evaluated for every distance metric (3 distance metrics were studied here). So, in total there are total 36 target possibilities. Due to time and computation limitations for the given table we will only show each of the attack as a proof of concept. The table from the paper with 36 possibilities is shown below. 
+
+<img width="1046" alt="Screen Shot 2020-05-30 at 3 24 01 PM" src="https://user-images.githubusercontent.com/15305740/83338517-db7fe500-a28a-11ea-9527-cb02027b4ba0.png">
+
+In the original experiment by the authors, they select first 360 correct predictions for classes A, N and O and first 220 correct predictions  for the class ~ to evaluate the success rate of targeted attack. But here one for each of the 36 possibilities is evaluated.
+
+
 ### Notes on the Attacks (IMPORTANT)
 - Since the accuracy of the model (DNN based ECG classification) is not 100%. The authors here create adversarial examples for only the data that was correctly classified. The frequency of this data is: 
 
 ZZZ
 - Only type I is implemented for a cloud deployed model (Although it is said to be cloud deployed, as allowed from the threat model there is no actual cloud deployment here, just the files are named cloud deployed and evaluation results are produces inside the folder named cloud_eval). whereas type II attack is implemented for a local deployment model. 
+
+- In the type I attack evaluation, all the metrics have the same optimization and hyperparameters.
 
 
 ###  Results. 
