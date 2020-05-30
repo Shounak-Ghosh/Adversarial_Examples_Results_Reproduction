@@ -27,7 +27,9 @@ Install dependencies. (Cleverhans version 2.0.0 was not submitted to PyPi. so, I
       $ pip install cleverhans==2.1.0
       $ pip install keras==2.2.0
 
-If working directly from python scripts you are done. But I like to work here in Jupyter Notebook so will have to install Jupyter in a virtual environment.
+If working directly from python scripts you are done. Skip to Next title.
+
+But I like to work here in Jupyter Notebook so will have to install Jupyter in a virtual environment.
  
       $ pip install jupyter notebook
 
@@ -40,7 +42,9 @@ Run Jupyter. Be sure to check the presence of .venv in 'New' at the top right
       $ jupyter notebook
 
 ###  Getting the files from the results of Deep Learning Based Classifier
-Copy all the files from DNN based ECG classification implementation. as seen [here](https://github.com/Bibek-Poudel/DNN_ECG_Implementation). In addition, I had to create several folders like 'cloud model' as seen in this repository.
+Copy all the files from DNN based ECG classification implementation. as seen [here](https://github.com/Bibek-Poudel/DNN_ECG_Implementation). Make a copy of the file revised_label.csv and name it REFERENCE-v3.csv. 
+
+In addition, I had to create several folders like 'cloud model' as seen in this repository.
 
 The organization of other files in this repository are: 
 -m
