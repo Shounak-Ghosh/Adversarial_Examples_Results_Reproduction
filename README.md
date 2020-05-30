@@ -13,7 +13,7 @@ Then, create a folder to work on and inside it a folder (named env here) where e
 
       $ virtualenv -p python3.6 /Path/to/virtual/env/
 
-Then activate the virtual environment (from terminal inside the working folder):
+Then activate the virtual environment (from terminal inside the working folder not inside env folder):
 
       $ source env/bin/activate
 
