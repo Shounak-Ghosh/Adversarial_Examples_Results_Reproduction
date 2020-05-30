@@ -41,17 +41,21 @@ Run Jupyter. Be sure to check the presence of .venv in 'New' at the top right
 
       $ jupyter notebook
 
-###  Getting the files from the results of Deep Learning Based Classifier
-Copy all the files from DNN based ECG classification implementation. as seen [here](https://github.com/Bibek-Poudel/DNN_ECG_Implementation). Make a copy of the file revised_label.csv and name it REFERENCE-v3.csv. 
+###  Getting the files Ready
+Copy all the files from DNN based ECG classification implementation as seen [here](https://github.com/Bibek-Poudel/DNN_ECG_Implementation).This contains the victim model as well as all the files from preciction made by that model. Make a copy of the file revised_label.csv and name it REFERENCE-v3.csv. 
 
-In addition, I had to create several folders like 'cloud model' and also the folders inside it, as seen in this repository.
+Copy the 9 files named below (from this rpository), Type I and Type II attacks are explained below in the next section:
 
-The organization of other files in this repository are: 
--m
--m
+-cloud_eval_l2.py, myattacks_l2.py, myattacks_tf_l2.py: Type-I Attack files (cloud deployment) for L2 metric
+-cloud_eval_diffl2.py, myattacks_diffl2.py, myattacks_tf_diffl2.py : Type I Attack files (cloud deployment) for XXX metric
+-cloud_eval_diff.py, myattacks_diff.py, myattacks_tf_diff.py: Type I Attack files (cloud deployment) for dsmooth metric
+
+In addition, create a folder named 'cloud model' and 
 
 ### Attack Notes (IMPORTANT)
 - Since the accuracy of the model (DNN based ECG classification) is not 100%. The authors here create adversarial examples for only the data that was correctly classified. The frequency of this data is: 
+
+
 
 __Type I and Type II are just two ways of specifying threat models__
 - Type I attack: The adversary can access the ECG recordings and curropt them by adding perturbations. For example, a cardiologist who wants to fool an insurance company (local deployed) or a hacker who wants to curropt a cloud deployed model)
