@@ -27,9 +27,8 @@ Install dependencies. (Cleverhans version 2.0.0 was not submitted to PyPi. so, I
       $ pip install cleverhans==2.1.0
       $ pip install keras==2.2.0
 
-If working directly from python scripts you are done. Skip to Next title.
-
-But I like to work here in Jupyter Notebook so will have to install Jupyter in a virtual environment.
+If working directly from python scripts you are done (in this repo too this method is done). Skip to Next title.
+But this can further be extended to work in Jupyter Notebook inside a virtual environment.
  
       $ pip install jupyter notebook
 
@@ -37,25 +36,29 @@ Now Install a kernel so that the version of dependencies that we installed above
 
       $ ipython kernel install --user --name=.venv
 
-Run Jupyter. Be sure to check the presence of .venv in 'New' at the top right
+Run Jupyter. Be sure to check the presence of .venv in while creating a new file in 'New' at the top right.
 
       $ jupyter notebook
 
 ###  Getting the files Ready
-Copy all the files from DNN based ECG classification implementation as seen [here](https://github.com/Bibek-Poudel/DNN_ECG_Implementation).This contains the victim model as well as all the files from preciction made by that model. Make a copy of the file revised_label.csv and name it REFERENCE-v3.csv. 
+Copy all the files from DNN based ECG classification implementation as seen [here](https://github.com/Bibek-Poudel/DNN_ECG_Implementation).This contains the victim model as well as all the files from preciction made by that model. Make a copy of the file revised_label.csv and rename it to REFERENCE-v3.csv 
 
-Copy the 9 files named below (from this rpository), Type I and Type II attacks are explained below in the next section:
+Copy the 9 files named below (from this repository), these are associated with Type I attack (explained in the next section):
 
 -cloud_eval_l2.py, myattacks_l2.py, myattacks_tf_l2.py: Type-I Attack files (cloud deployment) for L2 metric
 -cloud_eval_diffl2.py, myattacks_diffl2.py, myattacks_tf_diffl2.py : Type I Attack files (cloud deployment) for XXX metric
 -cloud_eval_diff.py, myattacks_diff.py, myattacks_tf_diff.py: Type I Attack files (cloud deployment) for dsmooth metric
+
+Copy the YY files named below (from this repository), these are associated with Type II attack (explained in the next section):
+-LDM_Attack.py, LDM_EOT.py, LDM_EOT_tf.py
+-LDM_UniversalEval.py
 
 In addition, create a folder named 'cloud model' and 
 
 ### Attack Notes (IMPORTANT)
 - Since the accuracy of the model (DNN based ECG classification) is not 100%. The authors here create adversarial examples for only the data that was correctly classified. The frequency of this data is: 
 
-
+ZZZ
 
 __Type I and Type II are just two ways of specifying threat models__
 - Type I attack: The adversary can access the ECG recordings and curropt them by adding perturbations. For example, a cardiologist who wants to fool an insurance company (local deployed) or a hacker who wants to curropt a cloud deployed model)
