@@ -46,11 +46,14 @@ Copy all the files from DNN based ECG classification implementation as seen [her
 Copy the 9 files named below (from this repository), these are associated with Type I attack (explained in the next section):
 
   -cloud_eval_l2.py, myattacks_l2.py, myattacks_tf_l2.py: Type-I Attack files (cloud deployment) for L2 metric
+  
   -cloud_eval_diffl2.py, myattacks_diffl2.py, myattacks_tf_diffl2.py : Type I Attack files (cloud deployment) for XXX metric
+  
   -cloud_eval_diff.py, myattacks_diff.py, myattacks_tf_diff.py: Type I Attack files (cloud deployment) for dsmooth metric
 
 Copy the YY files named below (from this repository), these are associated with Type II attack (explained in the next section):
   -LDM_Attack.py, LDM_EOT.py, LDM_EOT_tf.py
+  
   -LDM_UniversalEval.py
 
 In addition, create a folder named 'cloud model' and 
