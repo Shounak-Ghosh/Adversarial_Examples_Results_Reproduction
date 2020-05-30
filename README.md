@@ -69,7 +69,7 @@ __Type I attack:__ Adversary can access the ECG signals, and curropt them by add
 
 The evaluation of Type I attack is a bit more ambitious, i.e. it evaluates targeted attacks (Not just a misclassification, but a misclassification to a specific target class)
 
-For a targeted attack, each class has 3 possible misclassification targets so, there are 12 possibilities. But, each target attack has to be evaluated for every distance metric (3 distance metrics were studied here). So, in total there are total 36 target possibilities. Due to time and computation limitations for the given table we will only show each of the attack as a proof of concept. The table from the paper with 36 possibilities is shown below. 
+For a targeted attack, each class has 3 possible misclassification targets so, there are 12 possibilities. But, each target attack has to be evaluated for every distance metric (3 distance metrics were studied here). So, in total there are total 36 target possibilities. Due to time and computation limitations for the given table we will only show each of the attack as a proof of concept. The table from original experiments in the paper with 36 possibilities is shown below. 
 
 <img width="1046" alt="Screen Shot 2020-05-30 at 3 24 01 PM" src="https://user-images.githubusercontent.com/15305740/83338517-db7fe500-a28a-11ea-9527-cb02027b4ba0.png">
 
