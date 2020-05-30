@@ -44,7 +44,7 @@ Run Jupyter. Be sure to check the presence of .venv in 'New' at the top right
 ###  Getting the files from the results of Deep Learning Based Classifier
 Copy all the files from DNN based ECG classification implementation. as seen [here](https://github.com/Bibek-Poudel/DNN_ECG_Implementation). Make a copy of the file revised_label.csv and name it REFERENCE-v3.csv. 
 
-In addition, I had to create several folders like 'cloud model' as seen in this repository.
+In addition, I had to create several folders like 'cloud model' and also the folders inside it, as seen in this repository.
 
 The organization of other files in this repository are: 
 -m
