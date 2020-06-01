@@ -56,7 +56,7 @@ Copy the YY files named below (from this repository), these are associated with 
   
   - LDM_UniversalEval.py
 
-In addition, create a folder named 'cloud model' and 
+In addition, create a folder named 'cloud model' in the working folder and create folders named 'l2_eval', 'smooth_eval' and 'l2smooth_0_01_eval' to store the perturbations for L2, dsmooth and dsmooth l2 metrics respectively. 
 
 ### Explaining the Attacks
 
@@ -75,7 +75,7 @@ For a targeted attack, each class has 3 possible misclassification targets so, t
 
 In the original experiment by the authors, they select first 360 correct predictions for classes A, N and O and first 220 correct predictions  for the class ~ to evaluate the success rate of targeted attack. But here one for each of the 36 possibilities is evaluated.
 
-__Type II Attack:__ A physical injection attack where the attacker is closer to the victim. Done using electro magnetic interference. Adversary may not be able to access the ECG directly or they want to perform attack without leaving a digital tampering footage. Hence, without a digital access to the ECGs, attack is injected on-the-fly via physical processes. 
+__Type II Attack:__ A physical injection attack where the attacker is closer to the victim. Done using electro magnetic interference. Adversary may not be able to access the ECG directly or they want to perform attack without leaving a digital tampering footage. Hence, without a digital access to the ECGs, attack is injected on-the-fly (during the run, do something without interrupting the operation) via physical processes. 
   - Since Type II attacks are done by electromagnetic interference,  'skewing in time domain between perturbation and ECG' due to attackers lack of knowledge of the exact start time of the ECG may affect the end result. So, this is modeled here by shifting perturbation at various amounts before adding to victim (Inspired by the 'Expectation over Transformation' from another paper ), such shifting is considered as a ' shifting transformation' of the original measurement (of what?) and specifued in the optimization problem. 
   - Filtering of the incoming signals is also modeled. 2 widely used filters are shown. In the generation (of what?), rectangular filter removes all the power within the selected frequency range.  To generate filtering resistant perturbations, the power (why is power constrained?) of perturbations is constrained within the filtered frequency bands during the optimization procedure. Using Fast Fourier Transform, perturbation is transformed from time domain to frequency domain, and the power of frequency domains less than 0.05 Hz and 50/60 Hz is masked to zero. And then inverse fourier transform to time domain.
   - The duration of attack (smaller duration means lower exposure risk) is also studied here. Termed as 'Perturbation window size'.
@@ -94,8 +94,11 @@ ZZZ
 ###  Results. 
 It takes very long time to generate perturbations. In some cases it took me 10 minutes to generate perturbation for 1 ECG.
 
-__1.Generate Attack Perturbations for cloud Deployment model using the 3 metrics__
+__1.Generate Attack Perturbations for Type I attack using the 3 metrics__
 There are 12 variations created by the combination of distance metric and correct prediction for each class. First step is to create perturbations for all variations.
+
+Attack File: Specifies the distance metric
+Index File: Specifies the class of correctly classified data for which perturbation is to be generated
 
       python attack_file index_file start_idx end_idx
       
@@ -114,7 +117,13 @@ There are 12 variations created by the combination of distance metric and correc
       python cloud_eval_diffl2.py data_select_O.csv 1 360
       python cloud_eval_diffl2.py data_select_i.csv 1 220
 
-__2.For perturbations in each class compare the target to other 3 classes __
+__2. Generate Targeted Adversarial Examples from the perturbations in 1.
+
+Since in step 1, we generated perturbations for each class, Here for each of the 12 samples above, we now generate targeted adversarial examples for 3 other classes (Language milau yaha)
+
+(Code hera model sanga test garcha ki nai
+
+__3.For perturbations in each class compare the target to other 3 classes __
 
 - Type I, Type II (Can both type I and type II have local and cloud deployed models?)
 - Cloud deployed, Local deployed
