@@ -69,12 +69,17 @@ __Type I attack:__ Adversary can access the ECG signals, and curropt them by add
 
 The evaluation of Type I attack is a bit more ambitious, i.e. it evaluates targeted attacks (Not just a misclassification, but a misclassification to a specific target class)
 
-For a targeted attack, each class has 3 possible misclassification targets so, there are 12 possibilities. But, each target attack has to be evaluated for every distance metric (3 distance metrics were studied here). So, in total there are total 36 target possibilities. Due to time and computation limitations for the given table we will only show each of the attack as a proof of concept. The table from original experiments in the paper with 36 possibilities is shown below. 
+For a targeted attack, each class has 3 possible misclassification targets so, there are 12 possibilities. But, each target attack has to be evaluated for every distance metric (3 distance metrics were studied here). So, in total there are total 36 target possibilities. Due to time and computation limitations for the given table we will only show each of the attack as a proof of concept. The table from original experiments in the paper with 36 possibilities is shown below (The percentage represents the success rate of each attack). 
 
 <img width="1046" alt="Screen Shot 2020-05-30 at 3 24 01 PM" src="https://user-images.githubusercontent.com/15305740/83338517-db7fe500-a28a-11ea-9527-cb02027b4ba0.png">
 
 In the original experiment by the authors, they select first 360 correct predictions for classes A, N and O and first 220 correct predictions  for the class ~ to evaluate the success rate of targeted attack. But here one for each of the 36 possibilities is evaluated.
 
+__Type II Attack:__ A physical injection attack where the attacker is closer to the victim. Done using electro magnetic interference. Adversary may not be able to access the ECG directly or they want to perform attack without leaving a digital tampering footage. Hence, without a digital access to the ECGs, attack is injected on-the-fly via physical processes. 
+  - Since Type II attacks are done by electromagnetic interference,  'skewing in time domain between perturbation and ECG' due to attackers lack of knowledge of the exact start time of the ECG may affect the end result. So, this is modeled here by shifting perturbation at various amounts before adding to victim (Inspired by the 'Expectation over Transformation' from another paper ), such shifting is considered as a ' shifting transformation' of the original measurement (of what?) and specifued in the optimization problem. 
+  - Filtering of the incoming signals is also modeled. 2 widely used filters are shown. In the generation (of what?), rectangular filter removes all the power within the selected frequency range.  To generate filtering resistant perturbations, the power (why is power constrained?) of perturbations is constrained within the filtered frequency bands during the optimization procedure. Using Fast Fourier Transform, perturbation is transformed from time domain to frequency domain, and the power of frequency domains less than 0.05 Hz and 50/60 Hz is masked to zero. And then inverse fourier transform to time domain.
+  - The duration of attack (smaller duration means lower exposure risk) is also studied here. Termed as 'Perturbation window size'.
+  - UNIVERSARIALITY OF AN ATTACK (I DO NOT UNDERSTAND)
 
 ### Notes on the Attacks (IMPORTANT)
 - Since the accuracy of the model (DNN based ECG classification) is not 100%. The authors here create adversarial examples for only the data that was correctly classified. The frequency of this data is: 
@@ -84,6 +89,7 @@ ZZZ
 
 - In the type I attack evaluation, all the metrics have the same optimization and hyperparameters.
 
+- Type II Attack is only implemented in the Local Deployement model
 
 ###  Results. 
 It takes very long time to generate perturbations. In some cases it took me 10 minutes to generate perturbation for 1 ECG.
