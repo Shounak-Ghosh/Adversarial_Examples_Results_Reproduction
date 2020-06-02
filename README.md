@@ -38,7 +38,7 @@ Now Install a kernel so that the version of dependencies that we installed above
 
 Run Jupyter. Be sure to check the presence of .venv in while creating a new file in 'New' at the top right.
 
-      $ jupyter notebook
+      $ jupyter notebook 
 
 ###  Getting the files Ready
 Copy all the files from DNN based ECG classification implementation as seen [here](https://github.com/Bibek-Poudel/DNN_ECG_Implementation).This contains the victim model as well as all the files from preciction made by that model. Make a copy of the file revised_label.csv and rename it to REFERENCE-v3.csv 
