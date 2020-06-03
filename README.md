@@ -1,4 +1,4 @@
-# Adversarial_Examples_Results_Reproduction
+# Adversarial_Examples_Results_Reproduction.
 Results reproduction of the ECGAdv paper. 
 
 ### Setting up a virtual environment for running the experiments
