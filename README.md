@@ -1,5 +1,5 @@
 # Adversarial Examples Results Reproduction.
-Results reproduction of the Type I attack explained as given in ECGAdv [paper](https://arxiv.org/abs/1901.03808). I have given a brief explanation of the Type I attack [here] (https://github.com/Bibek-Poudel/Adversarial_Examples_Results_Reproduction/blob/master/Type_I_Attack_Explanation.pdf). 
+Results reproduction of the Type I attack explained as given in ECGAdv [paper](https://arxiv.org/abs/1901.03808). I have given a brief explanation of the Type I attack [here](https://github.com/Bibek-Poudel/Adversarial_Examples_Results_Reproduction/blob/master/Type_I_Attack_Explanation.pdf). 
 This tutorial is based on the companion code of the paper, as given [here](https://github.com/codespace123/ECGadv)
 
 ### Step 1: Setting up a virtual environment for running the experiments
@@ -67,7 +67,7 @@ The evaluation of Type I attack is a bit more ambitious, i.e. it evaluates targe
 
 For a targeted attack, each class has 3 possible misclassification targets so, there are 12 possibilities. But, each target attack has to be evaluated for every distance metric (3 distance metrics were studied here). So, in total there are total 36 target possibilities. Due to time and computation limitations for the given table we will only show each of the attack as a proof of concept. The table from original experiments in the paper with 36 possibilities is shown below (The percentage represents the success rate of each attack). 
 
-<img width="1046" alt="Screen Shot 2020-05-30 at 3 24 01 PM" src="https://user-images.githubusercontent.com/15305740/83338517-db7fe500-a28a-11ea-9527-cb02027b4ba0.png">
+![Group](https://user-images.githubusercontent.com/15305740/83802116-cf6f9b00-a66f-11ea-99e5-9599077ea27e.png)
 
 In the original experiment by the authors, they select first 360 correct predictions for classes A, N and O and first 220 correct predictions  for the class ~ to evaluate the success rate of targeted attack. But here one for each of the 36 possibilities is evaluated.
 
