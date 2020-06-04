@@ -1,7 +1,8 @@
 # Adversarial Examples Results Reproduction.
-Results reproduction of the Type I attack as given in ECGAdv [paper](https://arxiv.org/abs/1901.03808). 
+Results reproduction of the Type I attack explained as given in ECGAdv [paper](https://arxiv.org/abs/1901.03808). I have given a brief explanation of the Type I attack [here] (https://github.com/Bibek-Poudel/Adversarial_Examples_Results_Reproduction/blob/master/Type_I_Attack_Explanation.pdf). 
+This tutorial is based on the companion code of the paper, as given [here](https://github.com/codespace123/ECGadv)
 
-### Setting up a virtual environment for running the experiments
+### Step 1: Setting up a virtual environment for running the experiments
 The dependency versions for the project are:  
   - python version 3.6.5
   - Tensorflow version 1.8.0
@@ -27,8 +28,8 @@ Install dependencies. (Cleverhans version 2.0.0 was not submitted to PyPi. so, I
       $ pip install cleverhans==2.1.0
       $ pip install keras==2.2.0
 
-If working directly from python scripts you are done (in this repo too this method is done). Skip to Next title.
-But this can further be extended to work in Jupyter Notebook inside a virtual environment.
+Although the original code has implemented everything in python script, I have also used Jupyter Notebook 
+Lets install Jupyter Notebook inside our virtual environment.
  
       $ pip install jupyter notebook
 
@@ -40,10 +41,10 @@ Run Jupyter. Be sure to check the presence of .venv in while creating a new file
 
       $ jupyter notebook 
 
-###  Getting the files Ready
+###  Step 2: Getting the files Ready
 Copy all the files from DNN based ECG classification implementation as seen [here](https://github.com/Bibek-Poudel/DNN_ECG_Implementation).This contains the victim model as well as all the files from preciction made by that model. Make a copy of the file revised_label.csv and rename it to REFERENCE-v3.csv 
 
-Copy the 9 files named below (from this repository), these are associated with Type I attack (explained in the next section):
+ECGAdv internally uses Cleverhans [Library](https://github.com/tensorflow/cleverhans). Type I attack is contained in the 9 files given below. Copy them,(from this repository. Each file is based on some metric to measure distance between adversarial and real ECG signal (explained in next section):
 
   - cloud_eval_l2.py, myattacks_l2.py, myattacks_tf_l2.py: For L2 metric
   
@@ -51,14 +52,9 @@ Copy the 9 files named below (from this repository), these are associated with T
   
   - cloud_eval_diff.py, myattacks_diff.py, myattacks_tf_diff.py: For dsmooth metric
 
-Copy the YY files named below (from this repository), these are associated with Type II attack (explained in the next section):
-  - LDM_Attack.py, LDM_EOT.py, LDM_EOT_tf.py
-  
-  - LDM_UniversalEval.py
+Now, create a folder named 'cloud model' in the working folder and create folders named 'l2_eval', 'smooth_eval' and 'l2smooth_0_01_eval' to store the perturbations for L2, dsmooth and dsmooth l2 metrics respectively. I did not decide these folder names, the original implementation has this.
 
-In addition, create a folder named 'cloud model' in the working folder and create folders named 'l2_eval', 'smooth_eval' and 'l2smooth_0_01_eval' to store the perturbations for L2, dsmooth and dsmooth l2 metrics respectively. 
-
-### Explaining the Attacks
+### Step 3: Explaining the Attacks
 
 The adversary aims to engineer ECGs so that the classification system is mislead to give the diagnosis that he/she desires. Meanwhile, data perturbations should be sufficiently subtle that they are either imperceptible to humans or it perceptible seems natural and not representative of an attack. There are two types of attacks, Type I and Type II, each with its own threat model: 
 
@@ -79,45 +75,40 @@ __Type II Attack:__ A physical injection attack where the attacker is closer to 
   - Since Type II attacks are done by electromagnetic interference,  'skewing in time domain between perturbation and ECG' due to attackers lack of knowledge of the exact start time of the ECG may affect the end result. So, this is modeled here by shifting perturbation at various amounts before adding to victim (Inspired by the 'Expectation over Transformation' from another paper ), such shifting is considered as a ' shifting transformation' of the original measurement (of what?) and specifued in the optimization problem. 
   - Filtering of the incoming signals is also modeled. 2 widely used filters are shown. In the generation (of what?), rectangular filter removes all the power within the selected frequency range.  To generate filtering resistant perturbations, the power (why is power constrained?) of perturbations is constrained within the filtered frequency bands during the optimization procedure. Using Fast Fourier Transform, perturbation is transformed from time domain to frequency domain, and the power of frequency domains less than 0.05 Hz and 50/60 Hz is masked to zero. And then inverse fourier transform to time domain.
   - The duration of attack (smaller duration means lower exposure risk) is also studied here. Termed as 'Perturbation window size'.
-  - UNIVERSARIALITY OF AN ATTACK (I DO NOT UNDERSTAND)
 
 ### Notes on the Attacks (IMPORTANT)
-- Since the accuracy of the model (DNN based ECG classification) is not 100%. The authors here create adversarial examples for only the data that was correctly classified. The frequency of this data is: 
-
-ZZZ
+- Since the accuracy of the model (DNN based ECG classification) is not 100%. The authors here create adversarial examples for only the data that was correctly classified. 
 - Only type I is implemented for a cloud deployed model (Although it is said to be cloud deployed, as allowed from the threat model there is no actual cloud deployment here, just the files are named cloud deployed and evaluation results are produces inside the folder named cloud_eval). whereas type II attack is implemented for a local deployment model. 
 
-- In the type I attack evaluation, all the metrics have the same optimization and hyperparameters.
-
-- Type II Attack is only implemented in the Local Deployement model
-
-###  Results. 
+###  Step 4: Proof of concept results. 
 It takes very long time to generate perturbations. In some cases it took me 10 minutes to generate perturbation for 1 ECG.
 
 __1.Generate Attack Perturbations for Type I attack using the 3 metrics__
 There are 12 variations created by the combination of distance metric and correct prediction for each class. First step is to create perturbations for all variations.
 
-Attack File: Specifies the distance metric
+Attack File: Specifies the distance metric (eval_l2, eval_diff, eval_diffl2)
 Index File: Specifies the class of correctly classified data for which perturbation is to be generated
 
       python attack_file index_file start_idx end_idx
       
-      python cloud_eval_l2.py data_select_A.csv 1 360
-      python cloud_eval_l2.py data_select_N.csv 1 360
-      python cloud_eval_l2.py data_select_O.csv 1 360
-      python cloud_eval_l2.py data_select_i.csv 1 220
+      python cloud_eval_l2.py data_select_A.csv 1 2 (*)
+      python cloud_eval_l2.py data_select_N.csv 1 2
+      python cloud_eval_l2.py data_select_O.csv 1 2
+      python cloud_eval_l2.py data_select_i.csv 1 2
       
-      python cloud_eval_diff.py data_select_A.csv 1 360
-      python cloud_eval_diff.py data_select_N.csv 1 360
-      python cloud_eval_diff.py data_select_O.csv 1 360
-      python cloud_eval_diff.py data_select_i.csv 1 220
+      python cloud_eval_diff.py data_select_A.csv 1 2 (*)
+      python cloud_eval_diff.py data_select_N.csv 1 2
+      python cloud_eval_diff.py data_select_O.csv 1 2
+      python cloud_eval_diff.py data_select_i.csv 1 2
       
-      python cloud_eval_diffl2.py data_select_A.csv 1 360
-      python cloud_eval_diffl2.py data_select_N.csv 1 360
-      python cloud_eval_diffl2.py data_select_O.csv 1 360
-      python cloud_eval_diffl2.py data_select_i.csv 1 220
+      python cloud_eval_diffl2.py data_select_A.csv 1 2 (*)
+      python cloud_eval_diffl2.py data_select_N.csv 1 2
+      python cloud_eval_diffl2.py data_select_O.csv 1 2
+      python cloud_eval_diffl2.py data_select_i.csv 1 2
 
-Each execution of this code generate 3 files for each record (36 files in total). The 3 files correspond to the 3 classes other than the ground truth for which the given signal can be targeted.
+For simplicity, in this repository I have executed only the scripts mentioned as (8). Each execution of this script generate 3 files for each record (9 files in total). 
+
+The 3 files correspond to the 3 classes other than the ground truth for which the given signal can be targeted.
 
 __2. Generate Targeted Adversarial Examples from the perturbations in 1.
 
