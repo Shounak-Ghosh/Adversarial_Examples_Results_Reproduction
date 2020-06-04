@@ -117,6 +117,8 @@ Index File: Specifies the class of correctly classified data for which perturbat
       python cloud_eval_diffl2.py data_select_O.csv 1 360
       python cloud_eval_diffl2.py data_select_i.csv 1 220
 
+Each execution of this code generate 3 files for each record (36 files in total). The 3 files correspond to the 3 classes other than the ground truth for which the given signal can be targeted.
+
 __2. Generate Targeted Adversarial Examples from the perturbations in 1.
 
 Since in step 1, we generated perturbations for each class, Here for each of the 12 samples above, we now generate targeted adversarial examples for 3 other classes (Language milau yaha)
