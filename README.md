@@ -110,10 +110,18 @@ For simplicity, in this repository I have executed only the scripts denoted as (
 __2. Verify the Generated Adversarial Examples__
 
 Above, we generated perturbations for each class N,0,~ for the record file (A00005) which happens to be the first file in data_select_A.csv with ground truth class A. 
+
 Here for each of the 9 samples generate from above, inside corresponding sub-folders in the 'cloud model' folder we want to feed them to the model and see if they work as expected.
 
-I modified the metric_compare_.py file given in the original implementation to create a file Modified_Metric_compare.ipynb
+I modified the metric_compare_.py file given in the original implementation to create a file Modified_Metric_compare.ipynb, it can be found [here](https://github.com/Bibek-Poudel/Adversarial_Examples_Results_Reproduction/blob/master/cloud_model/Modified_Metric_compare.ipynb)
 
+The reproduced results look like this: (Corresponding the green column) in Table 3
+
+<img width="29" alt="Screen Shot 2020-06-04 at 4 15 31 PM" src="https://user-images.githubusercontent.com/15305740/83811037-adc9e000-a67e-11ea-873a-179e8ebe021b.png">
+
+First 3 results correspond to L2 metric, 4-6 to Dsmooth, 6-9 correspond to Dsmoothl2
+As we can see, the results for L2 metric do not match the table. But results 4-9 are correct. 
+I tried to re implement the results to record no. A00009 But, I am still getting the same error. I have decided to move on thinking may there is some error in my modifications. 
 
 __3. Lets have a look at some Adversarial Example plots__
 
