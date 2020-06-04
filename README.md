@@ -106,9 +106,11 @@ Index File: Specifies the class of correctly classified data for which perturbat
       python cloud_eval_diffl2.py data_select_O.csv 1 2
       python cloud_eval_diffl2.py data_select_i.csv 1 2
 
-For simplicity, in this repository I have executed only the scripts mentioned as (8). Each execution of this script generate 3 files for each record (9 files in total). 
+The end_idx is set to 2, means that we are only generating one adversarial example per attack file (for each attack file 3 examples are generated, one for each metric. So if we execute all 9 we get 36 variations as shown in table 3 above.) 
 
-The 3 files correspond to the 3 classes other than the ground truth for which the given signal can be targeted.
+The 3 files for each record correspond to the 3 classes other than the ground truth for which the given signal can be targeted. For example: when I execute __python cloud_eval_l2.py data_select_A.csv 1 2__ , The first ECG record from data_select_A.csv (meaning ground truth is class A) is used to craft adversarial examples for classes N, O and ~.
+
+For simplicity, in this repository I have executed only the scripts denoted as (*). Each execution of this script generate 3 files for each record (9 files in total). This corresponds to the green colored regions in the table 3 from paper shown above.
 
 __2. Generate Targeted Adversarial Examples from the perturbations in 1.
 
