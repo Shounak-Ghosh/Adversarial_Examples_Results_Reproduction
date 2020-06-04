@@ -114,7 +114,8 @@ Here for each of the 9 samples generate from above, inside corresponding sub-fol
 
 I modified the metric_compare_.py file given in the original implementation to create a file Modified_Metric_compare.ipynb
 
-__3. Lets have a look at some plots__
+
+__3. Lets have a look at some Adversarial Example plots__
 
 
 ![1](https://user-images.githubusercontent.com/15305740/83810400-af46d880-a67d-11ea-9a96-1b598cf222cc.png)
