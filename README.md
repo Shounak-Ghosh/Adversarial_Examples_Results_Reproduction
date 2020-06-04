@@ -48,7 +48,7 @@ ECGAdv internally uses Cleverhans [Library](https://github.com/tensorflow/clever
 
   - cloud_eval_l2.py, myattacks_l2.py, myattacks_tf_l2.py: For L2 metric
   
-  - cloud_eval_diffl2.py, myattacks_diffl2.py, myattacks_tf_diffl2.py : For XXX metric
+  - cloud_eval_diffl2.py, myattacks_diffl2.py, myattacks_tf_diffl2.py : For DSmooth,L2 metric
   
   - cloud_eval_diff.py, myattacks_diff.py, myattacks_tf_diff.py: For dsmooth metric
 
