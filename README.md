@@ -111,6 +111,6 @@ __2. Generate Targeted Adversarial Examples from the perturbations in 1.
 
 Since in step 1, we generated perturbations for each class, Here for each of the 12 samples above, we now generate targeted adversarial examples for 3 other classes (Language milau yaha)
 
-(Code hera model sanga test garcha ki nai
+
 
 
