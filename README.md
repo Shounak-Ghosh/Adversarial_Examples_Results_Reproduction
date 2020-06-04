@@ -116,8 +116,10 @@ I modified the metric_compare_.py file given in the original implementation to c
 
 __3. Lets have a look at some plots__
 
-Plot 1: Ground Truth- class Atrial Fibrilation, Predicted as- class Normal Rhythm, Distance metric- DsmoothL2
-![1](https://user-images.githubusercontent.com/15305740/83810400-af46d880-a67d-11ea-9a96-1b598cf222cc.png)
 
-Plot 1: Ground Truth- class Atrial Fibrilation, Predicted as- class ~ (Noise), Distance metric- DsmoothL2
+![1](https://user-images.githubusercontent.com/15305740/83810400-af46d880-a67d-11ea-9a96-1b598cf222cc.png)
+Plot 1: Ground Truth- class Atrial Fibrilation, Predicted as- class Normal Rhythm, Distance metric- DsmoothL2
+
+
 ![Unknown-1](https://user-images.githubusercontent.com/15305740/83810465-cc7ba700-a67d-11ea-99f8-204285c629ef.png)
+Plot 2: Ground Truth- class Atrial Fibrilation, Predicted as- class ~ (Noise), Distance metric- DsmoothL2
