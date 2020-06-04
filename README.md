@@ -107,10 +107,17 @@ The 3 files for each record correspond to the 3 classes other than the ground tr
 
 For simplicity, in this repository I have executed only the scripts denoted as (*). Each execution of this script generate 3 files for each record (9 files in total). This corresponds to the green colored regions in the table 3 from paper shown above.
 
-__2. Generate Targeted Adversarial Examples from the perturbations in 1.
+__2. Verify the Generated Adversarial Examples__
 
-Since in step 1, we generated perturbations for each class, Here for each of the 12 samples above, we now generate targeted adversarial examples for 3 other classes (Language milau yaha)
+Above, we generated perturbations for each class N,0,~ for the record file (A00005) which happens to be the first file in data_select_A.csv with ground truth class A. 
+Here for each of the 9 samples generate from above, inside corresponding sub-folders in the 'cloud model' folder we want to feed them to the model and see if they work as expected.
 
+I modified the metric_compare_.py file given in the original implementation to create a file Modified_Metric_compare.ipynb
 
+__3. Lets have a look at some plots__
 
+Plot 1: Ground Truth- class Atrial Fibrilation, Predicted as- class Normal Rhythm, Distance metric- DsmoothL2
+![1](https://user-images.githubusercontent.com/15305740/83810400-af46d880-a67d-11ea-9a96-1b598cf222cc.png)
 
+Plot 1: Ground Truth- class Atrial Fibrilation, Predicted as- class ~ (Noise), Distance metric- DsmoothL2
+![Unknown-1](https://user-images.githubusercontent.com/15305740/83810465-cc7ba700-a67d-11ea-99f8-204285c629ef.png)
